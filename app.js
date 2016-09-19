@@ -1,4 +1,5 @@
 var voll = require('volleyball');
+var nun = require('nunjucks');
 var express = require('express');
 var app = express();
 
@@ -31,13 +32,28 @@ app.get('/news', function(req, res) {
     res.send("you're at the news page");
 });
 
-
-
-
-
-
-
-
 app.listen(3000, function() {
     console.log("it's running...");
 });
+
+// in some file that is in the root directory of our application
+var locals = {
+    title: 'An Example',
+    people: [
+        { name: 'Gandalf'},
+        { name: 'Frodo' },
+        { name: 'Hermione'}
+    ]
+};
+nun.render('views/index.html', locals, function (err, output) {
+    console.log(output);
+});
+
+nun.configure('/views'); // point nunjucks to the proper directory for templates
+app.get('/', function(req, res) {
+    res.render('index.html')
+})
+//app.set('view engine', 'html'); // have res.render work with html files
+app.engine('html', nun.render); // when giving html files to res.render, tell it to use nunjucks
+
+
