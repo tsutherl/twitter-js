@@ -10,6 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
-  }
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsutherl/twitter-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsutherl/twitter-js/issues"
+  },
+  "homepage": "https://github.com/tsutherl/twitter-js#readme"
 }
